@@ -3,11 +3,10 @@ import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
 import { Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
-import { ConferenceModule } from './conference/conference.module';
-import { TalkModule } from './talk/talk.module';
-import { SpeakerModule } from './speaker/speaker.module';
-import { AttendeeModule } from './attendee/attendee.module';
-import { StaffMemberModule } from './staff-member/staff-member.module';
+import { StudentModule } from './student/student.module';
+import { ProjectModule } from './project/project.module';
+import { ProfessorModule } from './professor/professor.module';
+import { EvaluationsModule } from './evaluations/evaluations.module';
 
 @Module({
   controllers: [AppController],
@@ -27,11 +26,10 @@ import { StaffMemberModule } from './staff-member/staff-member.module';
       dropSchema: true,
       synchronize: true,
     }),
-    ConferenceModule,
-    TalkModule,
-    SpeakerModule,
-    AttendeeModule,
-    StaffMemberModule,
+    StudentModule,
+    ProjectModule,
+    ProfessorModule,
+    EvaluationsModule,
   ]
 })
 export class AppModule {}
