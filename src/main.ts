@@ -14,6 +14,6 @@ async function bootstrap(): Promise<void> {
   });
   await app.listen(3000);
 }
-bootstrap().then(function(): void {
+bootstrap().then((): void => {
   console.log("Server Started");
 });
