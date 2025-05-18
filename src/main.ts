@@ -9,8 +9,8 @@ async function bootstrap(): Promise<void> {
   const app = await NestFactory.create(AppModule);
   app.enableVersioning({
     type: VersioningType.URI,
-    prefix: 'api/v',
-    defaultVersion: '1'
+    prefix: 'exam/v',
+    defaultVersion: '1.0.0'
   });
   await app.listen(3000);
 }
