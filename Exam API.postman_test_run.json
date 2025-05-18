@@ -1,0 +1,1134 @@
+{
+	"id": "c2a2b3a4-c3f5-4184-b38c-0c6a83538bd3",
+	"name": "Exam API",
+	"timestamp": "2025-05-18T21:09:34.567Z",
+	"collection_id": "33349241-bd0ecf83-bdf3-48c5-b71d-a1c00022b70e",
+	"folder_id": 0,
+	"environment_id": "33349241-6ee90b12-2417-4efa-916a-1a2cc292b94c",
+	"totalPass": 37,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2025-05-18T21:09:31.264Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "0e6bc6e8-0426-4e1f-a3f5-4e5d3590cfb1",
+			"name": "AUX - Create Professor Mentor",
+			"url": "http://localhost:3000/exam/v1.0.0/professors/",
+			"time": 30,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				30
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "90a1ffe1-1a62-474a-889c-baf90a2b601d",
+			"name": "AUX - Create Professor Evaluator",
+			"url": "http://localhost:3000/exam/v1.0.0/professors/",
+			"time": 3,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				3
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "11f2a306-f791-4808-b649-769de7ef92a6",
+			"name": "AUX - Create Student Evaluation",
+			"url": "http://localhost:3000/exam/v1.0.0/students/",
+			"time": 4,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				4
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "cfed16c0-e529-453b-8d72-a3264bcb2208",
+			"name": "AUX - Create Project (Valid Grade)",
+			"url": "http://localhost:3000/exam/v1.0.0/projects/",
+			"time": 9,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				9
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "7579ced6-a046-413a-b6e1-0d84264da803",
+			"name": "AUX - Create Project (Invalid Grade)",
+			"url": "http://localhost:3000/exam/v1.0.0/projects/",
+			"time": 8,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				8
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "06576499-7b31-4a2a-9a99-0e6b07afa9ac",
+			"name": "Create Evaluation (Valid)",
+			"url": "http://localhost:3000/exam/v1.0.0/evaluations/",
+			"time": 6,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"✅ Status Code is 201 (Created)": true,
+				"✅ Response includes Evaluation ID": true
+			},
+			"testPassFailCounts": {
+				"✅ Status Code is 201 (Created)": {
+					"pass": 1,
+					"fail": 0
+				},
+				"✅ Response includes Evaluation ID": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"✅ Status Code is 201 (Created)": true,
+					"✅ Response includes Evaluation ID": true
+				}
+			]
+		},
+		{
+			"id": "915a3edb-a93c-442a-8f1d-c98a9d3e6228",
+			"name": "Create Evaluation (Mentor Is Evaluator)",
+			"url": "http://localhost:3000/exam/v1.0.0/evaluations/",
+			"time": 4,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"❎ Should return 400 Bad Request": true,
+				"❎ Error message: Evaluator is the same as the mentor": true
+			},
+			"testPassFailCounts": {
+				"❎ Should return 400 Bad Request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"❎ Error message: Evaluator is the same as the mentor": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"❎ Should return 400 Bad Request": true,
+					"❎ Error message: Evaluator is the same as the mentor": true
+				}
+			]
+		},
+		{
+			"id": "9b27c0a9-e56e-4f76-bfd0-97e5c273943d",
+			"name": "Create Evaluation (Invalid Grade)",
+			"url": "http://localhost:3000/exam/v1.0.0/evaluations/",
+			"time": 5,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"❎ Should return 400 Bad Request due to invalid grade": true,
+				"❎ Error message: Grade must be between 0 and 5": true
+			},
+			"testPassFailCounts": {
+				"❎ Should return 400 Bad Request due to invalid grade": {
+					"pass": 1,
+					"fail": 0
+				},
+				"❎ Error message: Grade must be between 0 and 5": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"❎ Should return 400 Bad Request due to invalid grade": true,
+					"❎ Error message: Grade must be between 0 and 5": true
+				}
+			]
+		},
+		{
+			"id": "3bde310f-2b7f-4e80-bd07-0396a5c6af4c",
+			"name": "Create Professor (Valid)",
+			"url": "http://localhost:3000/exam/v1.0.0/professors/",
+			"time": 3,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"✅ Professor successfully created (should return 201)": true,
+				"✅ Response includes a valid professor ID": true
+			},
+			"testPassFailCounts": {
+				"✅ Professor successfully created (should return 201)": {
+					"pass": 1,
+					"fail": 0
+				},
+				"✅ Response includes a valid professor ID": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3
+			],
+			"allTests": [
+				{
+					"✅ Professor successfully created (should return 201)": true,
+					"✅ Response includes a valid professor ID": true
+				}
+			]
+		},
+		{
+			"id": "fbeb7017-794c-45ef-bf95-ed4a9db31a7e",
+			"name": "Create Professor (Invalid Extension Length)",
+			"url": "http://localhost:3000/exam/v1.0.0/professors/",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"❎ Should return 400 for invalid extension length": true,
+				"❎ Error message: Extension must be five digits long": true
+			},
+			"testPassFailCounts": {
+				"❎ Should return 400 for invalid extension length": {
+					"pass": 1,
+					"fail": 0
+				},
+				"❎ Error message: Extension must be five digits long": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"❎ Should return 400 for invalid extension length": true,
+					"❎ Error message: Extension must be five digits long": true
+				}
+			]
+		},
+		{
+			"id": "02ef7c08-aac8-48d9-adaf-2e89f8702901",
+			"name": "AUX - Create Professor Evaluator",
+			"url": "http://localhost:3000/exam/v1.0.0/professors/",
+			"time": 3,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				3
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "c8ca39d9-12e8-45f7-b464-e51fc6095a11",
+			"name": "AUX - Create Student Evaluated",
+			"url": "http://localhost:3000/exam/v1.0.0/students/",
+			"time": 3,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				3
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "54a85ca8-1793-444c-a93e-7019558948c7",
+			"name": "AUX - Create Project To Evaluate",
+			"url": "http://localhost:3000/exam/v1.0.0/projects/",
+			"time": 5,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				5
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "9da3239d-9974-4eb1-a54c-17b03381374c",
+			"name": "Assign Evaluator (Valid)",
+			"url": "http://localhost:3000/exam/v1.0.0/professors/14/project=26",
+			"time": 12,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"✅ Should return 200 (Evaluator assigned)": true,
+				"✅ Evaluator assigned and evaluation created": true
+			},
+			"testPassFailCounts": {
+				"✅ Should return 200 (Evaluator assigned)": {
+					"pass": 1,
+					"fail": 0
+				},
+				"✅ Evaluator assigned and evaluation created": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				12
+			],
+			"allTests": [
+				{
+					"✅ Should return 200 (Evaluator assigned)": true,
+					"✅ Evaluator assigned and evaluation created": true
+				}
+			]
+		},
+		{
+			"id": "0fc77975-45b3-4439-8b12-2e95855e177e",
+			"name": "AUX - Create Professor Overflow",
+			"url": "http://localhost:3000/exam/v1.0.0/professors/",
+			"time": 3,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				3
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "596ebc32-e8c5-4094-8f5b-10ae01a1facd",
+			"name": "AUX - Create Student Overflow",
+			"url": "http://localhost:3000/exam/v1.0.0/students/",
+			"time": 3,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				3
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "92788e73-d76a-4229-84c8-6f7eb0757021",
+			"name": "AUX - Create Overflow Project 1",
+			"url": "http://localhost:3000/exam/v1.0.0/projects/",
+			"time": 6,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				6
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "f96556fd-c37a-4bc6-9da9-c8a7bdd799a2",
+			"name": "AUX - Create Overflow Project 2",
+			"url": "http://localhost:3000/exam/v1.0.0/projects/",
+			"time": 7,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				7
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "2b4a1d30-50b7-4ae1-9289-2428cef60f5a",
+			"name": "AUX - Create Overflow Project 3",
+			"url": "http://localhost:3000/exam/v1.0.0/projects/",
+			"time": 8,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				8
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "35d54266-9eb2-44c9-afe0-fd77b65e24f2",
+			"name": "AUX - Create Fourth Project To Fail",
+			"url": "http://localhost:3000/exam/v1.0.0/projects/",
+			"time": 6,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				6
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "385d8417-ee9f-4a72-9b80-8bf4bdd1a142",
+			"name": "Assign Evaluator (Too Many Active Projects)",
+			"url": "http://localhost:3000/exam/v1.0.0/professors/15/project=30",
+			"time": 4,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"❎ Should return 400 (Evaluator has too many active projects)": true,
+				"❎ Error message: Professor has exceeded active project limit": true
+			},
+			"testPassFailCounts": {
+				"❎ Should return 400 (Evaluator has too many active projects)": {
+					"pass": 1,
+					"fail": 0
+				},
+				"❎ Error message: Professor has exceeded active project limit": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"❎ Should return 400 (Evaluator has too many active projects)": true,
+					"❎ Error message: Professor has exceeded active project limit": true
+				}
+			]
+		},
+		{
+			"id": "aa02d868-aebf-458a-b202-51739603ba37",
+			"name": "AUX - Create Student",
+			"url": "http://localhost:3000/exam/v1.0.0/students/",
+			"time": 3,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				3
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "e1191e11-91bb-4130-9ebd-740bb91ef5e4",
+			"name": "Create Project (Valid)",
+			"url": "http://localhost:3000/exam/v1.0.0/projects/",
+			"time": 6,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"✅ Should return 201 (Project created)": true,
+				"✅ Response contains a valid project ID": true
+			},
+			"testPassFailCounts": {
+				"✅ Should return 201 (Project created)": {
+					"pass": 1,
+					"fail": 0
+				},
+				"✅ Response contains a valid project ID": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"✅ Should return 201 (Project created)": true,
+					"✅ Response contains a valid project ID": true
+				}
+			]
+		},
+		{
+			"id": "21fb6596-2af5-49ba-822f-b80ddaeedc13",
+			"name": "Create Project (Invalid Budget ≤ 0)",
+			"url": "http://localhost:3000/exam/v1.0.0/projects/",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"❎ Should return 400 Bad Request due to invalid budget": true,
+				"❎ Error message: Budget must be greater than 0": true
+			},
+			"testPassFailCounts": {
+				"❎ Should return 400 Bad Request due to invalid budget": {
+					"pass": 1,
+					"fail": 0
+				},
+				"❎ Error message: Budget must be greater than 0": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"❎ Should return 400 Bad Request due to invalid budget": true,
+					"❎ Error message: Budget must be greater than 0": true
+				}
+			]
+		},
+		{
+			"id": "945adbdf-252f-4263-a3e2-cf0f96253078",
+			"name": "Create Project (Invalid Title Too Short)",
+			"url": "http://localhost:3000/exam/v1.0.0/projects/",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"❎ Should return 400 Bad Request due to short title": true,
+				"❎ Error message: Title must be longer than 15 characters": true
+			},
+			"testPassFailCounts": {
+				"❎ Should return 400 Bad Request due to short title": {
+					"pass": 1,
+					"fail": 0
+				},
+				"❎ Error message: Title must be longer than 15 characters": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"❎ Should return 400 Bad Request due to short title": true,
+					"❎ Error message: Title must be longer than 15 characters": true
+				}
+			]
+		},
+		{
+			"id": "1ae87b5f-6719-48f0-9b17-ebea84ce4349",
+			"name": "Advance Project (Valid)",
+			"url": "http://localhost:3000/exam/v1.0.0/projects/31/advance",
+			"time": 4,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"✅ Should return 200 (Project advanced)": true,
+				"✅ Project status should increment to 4": true
+			},
+			"testPassFailCounts": {
+				"✅ Should return 200 (Project advanced)": {
+					"pass": 1,
+					"fail": 0
+				},
+				"✅ Project status should increment to 4": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"✅ Should return 200 (Project advanced)": true,
+					"✅ Project status should increment to 4": true
+				}
+			]
+		},
+		{
+			"id": "f10c0fb3-95e8-447f-ac1a-17dd2820b1fa",
+			"name": "AUX - Create Max Status Project",
+			"url": "http://localhost:3000/exam/v1.0.0/projects/",
+			"time": 5,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				5
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "16900a7e-62eb-4e5f-be4d-3ff61a404487",
+			"name": "Advance Project (Already Max State)",
+			"url": "http://localhost:3000/exam/v1.0.0/projects/32/advance",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"❎ Should return 400 Bad Request (Project in max state)": true,
+				"❎ Error message: Project is already in its maximum state (4)": true
+			},
+			"testPassFailCounts": {
+				"❎ Should return 400 Bad Request (Project in max state)": {
+					"pass": 1,
+					"fail": 0
+				},
+				"❎ Error message: Project is already in its maximum state (4)": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"❎ Should return 400 Bad Request (Project in max state)": true,
+					"❎ Error message: Project is already in its maximum state (4)": true
+				}
+			]
+		},
+		{
+			"id": "4cd2ebd2-d614-42ac-b40d-c575dc78dda6",
+			"name": "Project's Students (Valid)",
+			"url": "http://localhost:3000/exam/v1.0.0/projects/31/students",
+			"time": 5,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"✅ Should return 200 (Students fetched)": true,
+				"✅ Response should be an array of students": true,
+				"✅ Response should include at least the leader": true
+			},
+			"testPassFailCounts": {
+				"✅ Should return 200 (Students fetched)": {
+					"pass": 1,
+					"fail": 0
+				},
+				"✅ Response should be an array of students": {
+					"pass": 1,
+					"fail": 0
+				},
+				"✅ Response should include at least the leader": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"✅ Should return 200 (Students fetched)": true,
+					"✅ Response should be an array of students": true,
+					"✅ Response should include at least the leader": true
+				}
+			]
+		},
+		{
+			"id": "d4cfdf1c-c9bf-48ec-ae43-b3a49a4e86ac",
+			"name": "Create Student (Valid)",
+			"url": "http://localhost:3000/exam/v1.0.0/students/",
+			"time": 3,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"✅ Should return 201 (Student created)": true,
+				"✅ Response includes a valid student ID": true
+			},
+			"testPassFailCounts": {
+				"✅ Should return 201 (Student created)": {
+					"pass": 1,
+					"fail": 0
+				},
+				"✅ Response includes a valid student ID": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3
+			],
+			"allTests": [
+				{
+					"✅ Should return 201 (Student created)": true,
+					"✅ Response includes a valid student ID": true
+				}
+			]
+		},
+		{
+			"id": "b7463a0a-5747-41a2-9f10-aa85e24da3e9",
+			"name": "Create Student (Invalid Average ≤ 3.2)",
+			"url": "http://localhost:3000/exam/v1.0.0/students/",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"❎ Should return 400 Bad Request (Invalid average)": true,
+				"❎ Error message: Average must be greater than 3.2": true
+			},
+			"testPassFailCounts": {
+				"❎ Should return 400 Bad Request (Invalid average)": {
+					"pass": 1,
+					"fail": 0
+				},
+				"❎ Error message: Average must be greater than 3.2": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"❎ Should return 400 Bad Request (Invalid average)": true,
+					"❎ Error message: Average must be greater than 3.2": true
+				}
+			]
+		},
+		{
+			"id": "b06e829e-957e-4914-9c47-041b2fe4e705",
+			"name": "Create Student (Invalid Semester < 4)",
+			"url": "http://localhost:3000/exam/v1.0.0/students/",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"❎ Should return 400 Bad Request (Invalid semester)": true,
+				"❎ Error message: Semester must be greater or equal to 4": true
+			},
+			"testPassFailCounts": {
+				"❎ Should return 400 Bad Request (Invalid semester)": {
+					"pass": 1,
+					"fail": 0
+				},
+				"❎ Error message: Semester must be greater or equal to 4": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"❎ Should return 400 Bad Request (Invalid semester)": true,
+					"❎ Error message: Semester must be greater or equal to 4": true
+				}
+			]
+		},
+		{
+			"id": "32715e99-8095-4e0f-9277-a26df11b4449",
+			"name": "AUX - Create Student Unactive",
+			"url": "http://localhost:3000/exam/v1.0.0/students/",
+			"time": 3,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				3
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "2eb7c1cf-b35f-4a56-86bb-5c0dc3f810a3",
+			"name": "AUX - Create Unactive Project",
+			"url": "http://localhost:3000/exam/v1.0.0/projects/",
+			"time": 5,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				5
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "7a7de046-8125-4df8-bc15-8a05b7d3d513",
+			"name": "Remove Student (Valid)",
+			"url": "http://localhost:3000/exam/v1.0.0/students/21",
+			"time": 4,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"✅ Should return 200 on successful student deletion": true,
+				"✅ Response confirms deletion": true
+			},
+			"testPassFailCounts": {
+				"✅ Should return 200 on successful student deletion": {
+					"pass": 1,
+					"fail": 0
+				},
+				"✅ Response confirms deletion": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"✅ Should return 200 on successful student deletion": true,
+					"✅ Response confirms deletion": true
+				}
+			]
+		},
+		{
+			"id": "44e632bb-0956-428c-96aa-69594a97dcbe",
+			"name": "AUX - Create Student Active",
+			"url": "http://localhost:3000/exam/v1.0.0/students/",
+			"time": 3,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				3
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "c89e82bc-05b3-4787-a94f-6e7f43638311",
+			"name": "AUX - Create Active Project",
+			"url": "http://localhost:3000/exam/v1.0.0/projects/",
+			"time": 5,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				5
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "09e62bc2-6cbe-462e-81cf-94ebe514a125",
+			"name": "Remove Student (With Unfinished Project)",
+			"url": "http://localhost:3000/exam/v1.0.0/students/22",
+			"time": 3,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"❎ Should return 400 Bad Request (Active projects constraint)": true,
+				"❎ Error message: Student has active unfinished projects": true
+			},
+			"testPassFailCounts": {
+				"❎ Should return 400 Bad Request (Active projects constraint)": {
+					"pass": 1,
+					"fail": 0
+				},
+				"❎ Error message: Student has active unfinished projects": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3
+			],
+			"allTests": [
+				{
+					"❎ Should return 400 Bad Request (Active projects constraint)": true,
+					"❎ Error message: Student has active unfinished projects": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 193,
+	"collection": {
+		"requests": [
+			{
+				"id": "0e6bc6e8-0426-4e1f-a3f5-4e5d3590cfb1",
+				"method": "POST"
+			},
+			{
+				"id": "90a1ffe1-1a62-474a-889c-baf90a2b601d",
+				"method": "POST"
+			},
+			{
+				"id": "11f2a306-f791-4808-b649-769de7ef92a6",
+				"method": "POST"
+			},
+			{
+				"id": "cfed16c0-e529-453b-8d72-a3264bcb2208",
+				"method": "POST"
+			},
+			{
+				"id": "7579ced6-a046-413a-b6e1-0d84264da803",
+				"method": "POST"
+			},
+			{
+				"id": "06576499-7b31-4a2a-9a99-0e6b07afa9ac",
+				"method": "POST"
+			},
+			{
+				"id": "915a3edb-a93c-442a-8f1d-c98a9d3e6228",
+				"method": "POST"
+			},
+			{
+				"id": "9b27c0a9-e56e-4f76-bfd0-97e5c273943d",
+				"method": "POST"
+			},
+			{
+				"id": "3bde310f-2b7f-4e80-bd07-0396a5c6af4c",
+				"method": "POST"
+			},
+			{
+				"id": "fbeb7017-794c-45ef-bf95-ed4a9db31a7e",
+				"method": "POST"
+			},
+			{
+				"id": "02ef7c08-aac8-48d9-adaf-2e89f8702901",
+				"method": "POST"
+			},
+			{
+				"id": "c8ca39d9-12e8-45f7-b464-e51fc6095a11",
+				"method": "POST"
+			},
+			{
+				"id": "54a85ca8-1793-444c-a93e-7019558948c7",
+				"method": "POST"
+			},
+			{
+				"id": "9da3239d-9974-4eb1-a54c-17b03381374c",
+				"method": "PATCH"
+			},
+			{
+				"id": "0fc77975-45b3-4439-8b12-2e95855e177e",
+				"method": "POST"
+			},
+			{
+				"id": "596ebc32-e8c5-4094-8f5b-10ae01a1facd",
+				"method": "POST"
+			},
+			{
+				"id": "92788e73-d76a-4229-84c8-6f7eb0757021",
+				"method": "POST"
+			},
+			{
+				"id": "f96556fd-c37a-4bc6-9da9-c8a7bdd799a2",
+				"method": "POST"
+			},
+			{
+				"id": "2b4a1d30-50b7-4ae1-9289-2428cef60f5a",
+				"method": "POST"
+			},
+			{
+				"id": "35d54266-9eb2-44c9-afe0-fd77b65e24f2",
+				"method": "POST"
+			},
+			{
+				"id": "385d8417-ee9f-4a72-9b80-8bf4bdd1a142",
+				"method": "PATCH"
+			},
+			{
+				"id": "aa02d868-aebf-458a-b202-51739603ba37",
+				"method": "POST"
+			},
+			{
+				"id": "e1191e11-91bb-4130-9ebd-740bb91ef5e4",
+				"method": "POST"
+			},
+			{
+				"id": "21fb6596-2af5-49ba-822f-b80ddaeedc13",
+				"method": "POST"
+			},
+			{
+				"id": "945adbdf-252f-4263-a3e2-cf0f96253078",
+				"method": "POST"
+			},
+			{
+				"id": "1ae87b5f-6719-48f0-9b17-ebea84ce4349",
+				"method": "PATCH"
+			},
+			{
+				"id": "f10c0fb3-95e8-447f-ac1a-17dd2820b1fa",
+				"method": "POST"
+			},
+			{
+				"id": "16900a7e-62eb-4e5f-be4d-3ff61a404487",
+				"method": "PATCH"
+			},
+			{
+				"id": "4cd2ebd2-d614-42ac-b40d-c575dc78dda6",
+				"method": "GET"
+			},
+			{
+				"id": "d4cfdf1c-c9bf-48ec-ae43-b3a49a4e86ac",
+				"method": "POST"
+			},
+			{
+				"id": "b7463a0a-5747-41a2-9f10-aa85e24da3e9",
+				"method": "POST"
+			},
+			{
+				"id": "b06e829e-957e-4914-9c47-041b2fe4e705",
+				"method": "POST"
+			},
+			{
+				"id": "32715e99-8095-4e0f-9277-a26df11b4449",
+				"method": "POST"
+			},
+			{
+				"id": "2eb7c1cf-b35f-4a56-86bb-5c0dc3f810a3",
+				"method": "POST"
+			},
+			{
+				"id": "7a7de046-8125-4df8-bc15-8a05b7d3d513",
+				"method": "DELETE"
+			},
+			{
+				"id": "44e632bb-0956-428c-96aa-69594a97dcbe",
+				"method": "POST"
+			},
+			{
+				"id": "c89e82bc-05b3-4787-a94f-6e7f43638311",
+				"method": "POST"
+			},
+			{
+				"id": "09e62bc2-6cbe-462e-81cf-94ebe514a125",
+				"method": "DELETE"
+			}
+		]
+	}
+}

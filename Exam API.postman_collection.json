@@ -1,0 +1,1714 @@
+{
+	"info": {
+		"_postman_id": "bd0ecf83-bdf3-48c5-b71d-a1c00022b70e",
+		"name": "Exam API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33349241"
+	},
+	"item": [
+		{
+			"name": "Evaluation",
+			"item": [
+				{
+					"name": "AUX - Create Professor Mentor",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const json = pm.response.json();\r",
+									"pm.environment.set(\"mentor-id\", json.id);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"document\": 8001,\r\n  \"name\": \"Mentor Professor\",\r\n  \"department\": \"AI\",\r\n  \"extension\": 12345,\r\n  \"peer\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/professors/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"professors",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AUX - Create Professor Evaluator",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const json = pm.response.json();\r",
+									"pm.environment.set(\"evaluator-id\", json.id);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"document\": 8002,\r\n  \"name\": \"Evaluator Professor\",\r\n  \"department\": \"CS\",\r\n  \"extension\": 54321,\r\n  \"peer\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/professors/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"professors",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AUX - Create Student Evaluation",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const json = pm.response.json();\r",
+									"pm.environment.set(\"student-evaluation-id\", json.id);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"document\": 8003,\r\n  \"name\": \"Student Evaluation\",\r\n  \"program\": \"Engineering\",\r\n  \"semester\": 6,\r\n  \"average\": 4.1\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/students/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"students",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AUX - Create Project (Valid Grade)",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const json = pm.response.json();\r",
+									"pm.environment.set(\"project-evaluation-valid-id\", json.id);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"AI Evaluation Project Valid\",\r\n  \"area\": \"Robotics\",\r\n  \"budget\": 10000,\r\n  \"grade\": 4.0,\r\n  \"status\": 2,\r\n  \"start\": \"2025-06-01\",\r\n  \"end\": \"2025-12-01\",\r\n  \"mentor\": \"{{mentor-id}}\",\r\n  \"leader\": \"{{student-evaluation-id}}\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/projects/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"projects",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AUX - Create Project (Invalid Grade)",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const json = pm.response.json();\r",
+									"pm.environment.set(\"project-evaluation-invalid-id\", json.id);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"AI Evaluation Invalid Grade\",\r\n  \"area\": \"Neural Networks\",\r\n  \"budget\": 12000,\r\n  \"grade\": 6.5,\r\n  \"status\": 2,\r\n  \"start\": \"2025-06-01\",\r\n  \"end\": \"2025-12-01\",\r\n  \"mentor\": \"{{mentor-id}}\",\r\n  \"leader\": \"{{student-evaluation-id}}\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/projects/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"projects",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Evaluation (Valid)",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"✅ Status Code is 201 (Created)\", () => {\r",
+									"  pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"✅ Response includes Evaluation ID\", () => {\r",
+									"  const json = pm.response.json();\r",
+									"  pm.expect(json.id, \"Evaluation ID should exist\").to.exist;\r",
+									"  pm.environment.set(\"evaluation-id\", json.id);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"evaluator\": \"{{evaluator-id}}\",\r\n  \"project\": \"{{project-evaluation-valid-id}}\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/evaluations/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"evaluations",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Evaluation (Mentor Is Evaluator)",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"❎ Should return 400 Bad Request\", () => {\r",
+									"  pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"❎ Error message: Evaluator is the same as the mentor\", () => {\r",
+									"  const json = pm.response.json();\r",
+									"  pm.expect(json.message, \"❎ Expected error message: 'Evaluator cannot be the same as the project mentor'\").to.include(\"Evaluator cannot be the same as the project mentor\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"evaluator\": \"{{mentor-id}}\",\r\n  \"project\": \"{{project-evaluation-valid-id}}\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/evaluations/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"evaluations",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Evaluation (Invalid Grade)",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"❎ Should return 400 Bad Request due to invalid grade\", () => {\r",
+									"  pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"❎ Error message: Grade must be between 0 and 5\", () => {\r",
+									"  pm.expect(pm.response.text(), \"❎ Expected message: 'Project grade must be between 0 and 5'\").to.include(\"Project grade must be between 0 and 5\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"evaluator\": \"{{evaluator-id}}\",\r\n  \"project\": \"{{project-evaluation-invalid-id}}\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/evaluations/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"evaluations",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Professor",
+			"item": [
+				{
+					"name": "Create Professor (Valid)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"✅ Professor successfully created (should return 201)\", () => {\r",
+									"  pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"✅ Response includes a valid professor ID\", () => {\r",
+									"  const json = pm.response.json();\r",
+									"  pm.expect(json.id, \"❎ Expected a professor ID in the response\").to.exist;\r",
+									"  pm.environment.set(\"professor-id\", json.id);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"document\": 45678,\r\n  \"name\": \"Dr. Shinra Kusakabe\",\r\n  \"department\": \"Physics\",\r\n  \"extension\": 12345,\r\n  \"peer\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/professors/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"professors",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Professor (Invalid Extension Length)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"❎ Should return 400 for invalid extension length\", () => {\r",
+									"  pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"❎ Error message: Extension must be five digits long\", () => {\r",
+									"  pm.expect(pm.response.text(), \"❎ Expected message to mention: 'Extension must be five digits long'\").to.include(\"Extension must be five digits long\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"document\": 45679,\r\n  \"name\": \"Dr. Arthur Boyle\",\r\n  \"department\": \"Engineering\",\r\n  \"extension\": 123456, \r\n  \"peer\": false\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/professors/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"professors",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AUX - Create Professor Evaluator",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const json = pm.response.json();\r",
+									"pm.expect(json.id).to.exist;\r",
+									"pm.environment.set(\"professor-evaluator-id\", json.id);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"document\": 11111,\r\n  \"name\": \"Evaluator Professor\",\r\n  \"department\": \"AI\",\r\n  \"extension\": 12345,\r\n  \"peer\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/professors/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"professors",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AUX - Create Student Evaluated",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const json = pm.response.json();\r",
+									"pm.expect(json.id).to.exist;\r",
+									"pm.environment.set(\"student-evaluated-id\", json.id);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"document\": 22222,\r\n  \"name\": \"Evaluated Student\",\r\n  \"program\": \"Computer Science\",\r\n  \"semester\": 7,\r\n  \"average\": 4.1\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/students/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"students",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AUX - Create Project To Evaluate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const json = pm.response.json();\r",
+									"pm.expect(json.id).to.exist;\r",
+									"pm.environment.set(\"project-to-evaluate-id\", json.id);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Project For Evaluation\",\r\n  \"area\": \"ML\",\r\n  \"budget\": 10000,\r\n  \"grade\": 4.2,\r\n  \"status\": 2,\r\n  \"start\": \"2025-06-01\",\r\n  \"leader\": \"{{student-evaluated-id}}\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/projects/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"projects",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Assign Evaluator (Valid)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"✅ Should return 200 (Evaluator assigned)\", () => {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"✅ Evaluator assigned and evaluation created\", () => {\r",
+									"  const json = pm.response.json();\r",
+									"\r",
+									"  pm.expect(json.evaluator.id, \"❎ Evaluator ID does not match professor-evaluator-id\").to.eql(pm.environment.get(\"professor-evaluator-id\"));\r",
+									"  pm.expect(json.project.id, \"❎ Project ID does not match project-to-evaluate-id\").to.eql(pm.environment.get(\"project-to-evaluate-id\"));\r",
+									"\r",
+									"  pm.environment.set(\"evaluation-id\", json.id);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/professors/{{professor-evaluator-id}}/project={{project-to-evaluate-id}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"professors",
+								"{{professor-evaluator-id}}",
+								"project={{project-to-evaluate-id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AUX - Create Professor Overflow",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const json = pm.response.json();\r",
+									"pm.expect(json.id).to.exist;\r",
+									"pm.environment.set(\"professor-overflow-id\", json.id);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"document\": 33333,\r\n  \"name\": \"Overflow Prof\",\r\n  \"department\": \"Software\",\r\n  \"extension\": 54321,\r\n  \"peer\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/professors/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"professors",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AUX - Create Student Overflow",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const json = pm.response.json();\r",
+									"pm.expect(json.id).to.exist;\r",
+									"pm.environment.set(\"student-overflow-id\", json.id);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"document\": 44444,\r\n  \"name\": \"Overflow Student\",\r\n  \"program\": \"Data Engineering\",\r\n  \"semester\": 6,\r\n  \"average\": 4.3\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/students/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"students",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AUX - Create Overflow Project 1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Overflow Project 1\",\r\n  \"area\": \"Infra\",\r\n  \"budget\": 5000,\r\n  \"grade\": 4.0,\r\n  \"status\": 1,\r\n  \"start\": \"2025-05-01\",\r\n  \"leader\": \"{{student-overflow-id}}\",\r\n  \"mentor\": \"{{professor-overflow-id}}\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/projects/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"projects",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AUX - Create Overflow Project 2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Overflow Project 2\",\r\n  \"area\": \"Infra\",\r\n  \"budget\": 5000,\r\n  \"grade\": 4.0,\r\n  \"status\": 1,\r\n  \"start\": \"2025-05-01\",\r\n  \"leader\": \"{{student-overflow-id}}\",\r\n  \"mentor\": \"{{professor-overflow-id}}\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/projects/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"projects",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AUX - Create Overflow Project 3",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Overflow Project 2\",\r\n  \"area\": \"Infra\",\r\n  \"budget\": 5000,\r\n  \"grade\": 4.0,\r\n  \"status\": 1,\r\n  \"start\": \"2025-05-01\",\r\n  \"leader\": \"{{student-overflow-id}}\",\r\n  \"mentor\": \"{{professor-overflow-id}}\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/projects/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"projects",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AUX - Create Fourth Project To Fail",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const json = pm.response.json();\r",
+									"pm.expect(json.id).to.exist;\r",
+									"pm.environment.set(\"overflow-final-project-id\", json.id);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Final Attempt Assignment\",\r\n  \"area\": \"AI Ethics\",\r\n  \"budget\": 9000,\r\n  \"grade\": 3.9,\r\n  \"status\": 1,\r\n  \"start\": \"2025-07-01\",\r\n  \"leader\": \"{{student-overflow-id}}\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/projects/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"projects",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Assign Evaluator (Too Many Active Projects)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"❎ Should return 400 (Evaluator has too many active projects)\", () => {\r",
+									"  pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"❎ Error message: Professor has exceeded active project limit\", () => {\r",
+									"  pm.expect(\r",
+									"    pm.response.text(),\r",
+									"    \"❎ Expected message: 'Professor cannot be assigned as mentor to more than three active projects'\"\r",
+									"  ).to.include(\"Professor cannot be assigned as mentor to more than three active projects\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/professors/{{professor-overflow-id}}/project={{overflow-final-project-id}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"professors",
+								"{{professor-overflow-id}}",
+								"project={{overflow-final-project-id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Project",
+			"item": [
+				{
+					"name": "AUX - Create Student",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const json = pm.response.json();\r",
+									"pm.environment.set(\"student-id\", json.id);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"document\": 88888,\r\n  \"name\": \"Aux Project Student\",\r\n  \"program\": \"Engineering\",\r\n  \"semester\": 6,\r\n  \"average\": 4.5\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/students/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"students",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Project (Valid)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"✅ Should return 201 (Project created)\", () => {\r",
+									"  pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"✅ Response contains a valid project ID\", () => {\r",
+									"  const json = pm.response.json();\r",
+									"  pm.expect(json.id, \"❎ Expected a project ID in the response\").to.exist;\r",
+									"  pm.environment.set(\"project-id\", json.id);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"AI Thesis on Fire Force\",\r\n  \"area\": \"AI\",\r\n  \"budget\": 10000,\r\n  \"grade\": 4.5,\r\n  \"status\": 3,\r\n  \"start\": \"2025-05-01\",\r\n  \"end\": \"2025-10-01\",\r\n  \"leader\": \"{{student-id}}\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/projects/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"projects",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Project (Invalid Budget ≤ 0)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"❎ Should return 400 Bad Request due to invalid budget\", () => {\r",
+									"  pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"❎ Error message: Budget must be greater than 0\", () => {\r",
+									"  pm.expect(\r",
+									"    pm.response.text(),\r",
+									"    \"❎ Expected message: 'Budget must be greater than 0'\"\r",
+									"  ).to.include(\"Budget must be greater than 0\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Valid Title With Enough Length\",\r\n  \"area\": \"BioTech\",\r\n  \"budget\": -100,\r\n  \"grade\": 3.0,\r\n  \"status\": 0,\r\n  \"start\": \"2025-05-01\",\r\n  \"end\": \"2025-11-30\",\r\n  \"leader\": \"{{student-id}}\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/projects/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"projects",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Project (Invalid Title Too Short)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"❎ Should return 400 Bad Request due to short title\", () => {\r",
+									"  pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"❎ Error message: Title must be longer than 15 characters\", () => {\r",
+									"  pm.expect(\r",
+									"    pm.response.text(),\r",
+									"    \"❎ Expected message: 'Title must be longer than 15 characters'\"\r",
+									"  ).to.include(\"Title must be longer than 15 characters\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Too Short\",\r\n  \"area\": \"Math\",\r\n  \"budget\": 8000,\r\n  \"grade\": 3.8,\r\n  \"status\": 0,\r\n  \"start\": \"2025-07-01\",\r\n  \"end\": \"2025-12-01\",\r\n  \"leader\": \"{{student-id}}\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/projects/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"projects",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Advance Project (Valid)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"✅ Should return 200 (Project advanced)\", () => {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"✅ Project status should increment to 4\", () => {\r",
+									"  const json = pm.response.json();\r",
+									"  pm.expect(json.status, \"❎ Expected project status to be 4 after advancement\").to.equal(4);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/projects/{{project-id}}/advance",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"projects",
+								"{{project-id}}",
+								"advance"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AUX - Create Max Status Project",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const json = pm.response.json();\r",
+									"pm.expect(json.id).to.exist;\r",
+									"pm.environment.set(\"max-project-id\", json.id);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Finalized Research on Quantum AI\",\r\n  \"area\": \"Research\",\r\n  \"budget\": 9500,\r\n  \"grade\": 4.0,\r\n  \"status\": 4,\r\n  \"start\": \"2024-01-01\",\r\n  \"end\": \"2024-12-31\",\r\n  \"leader\": \"{{student-id}}\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/projects/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"projects",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Advance Project (Already Max State)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"❎ Should return 400 Bad Request (Project in max state)\", () => {\r",
+									"  pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"❎ Error message: Project is already in its maximum state (4)\", () => {\r",
+									"  pm.expect(\r",
+									"    pm.response.text(),\r",
+									"    \"❎ Expected message: 'Project is already in its maximum state (4)'\"\r",
+									"  ).to.include(\"Project is already in its maximum state (4)\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/projects/{{max-project-id}}/advance",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"projects",
+								"{{max-project-id}}",
+								"advance"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Project's Students (Valid)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"✅ Should return 200 (Students fetched)\", () => {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"✅ Response should be an array of students\", () => {\r",
+									"  const json = pm.response.json();\r",
+									"  pm.expect(json, \"❎ Expected response to be an array\").to.be.an(\"array\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"✅ Response should include at least the leader\", () => {\r",
+									"  const json = pm.response.json();\r",
+									"  pm.expect(json.length, \"❎ Expected at least one student (the leader)\").to.be.greaterThan(0);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"evaluator\": \"2\",\r\n    \"project\": \"2\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseurl}}/projects/{{project-id}}/students",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"projects",
+								"{{project-id}}",
+								"students"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Student",
+			"item": [
+				{
+					"name": "Create Student (Valid)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"✅ Should return 201 (Student created)\", () => {\r",
+									"  pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"✅ Response includes a valid student ID\", () => {\r",
+									"  const json = pm.response.json();\r",
+									"  pm.expect(json.id, \"❎ Expected a student ID in the response\").to.exist;\r",
+									"  pm.environment.set(\"student-id\", json.id);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"document\": 12345,\r\n  \"name\": \"Student Success\",\r\n  \"program\": \"Systems Engineering\",\r\n  \"semester\": 5,\r\n  \"average\": 4.0\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/students/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"students",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Student (Invalid Average ≤ 3.2)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"❎ Should return 400 Bad Request (Invalid average)\", () => {\r",
+									"  pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"❎ Error message: Average must be greater than 3.2\", () => {\r",
+									"  pm.expect(\r",
+									"    pm.response.text(),\r",
+									"    \"❎ Expected message: 'Average must be greater than 3.2'\"\r",
+									"  ).to.include(\"Average must be greater than 3.2\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"document\": 12346,\r\n  \"name\": \"Low Average Student\",\r\n  \"program\": \"Systems Engineering\",\r\n  \"semester\": 5,\r\n  \"average\": 3.2\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/students/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"students",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Student (Invalid Semester < 4)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"❎ Should return 400 Bad Request (Invalid semester)\", () => {\r",
+									"  pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"❎ Error message: Semester must be greater or equal to 4\", () => {\r",
+									"  pm.expect(\r",
+									"    pm.response.text(),\r",
+									"    \"❎ Expected message: 'Semester must be greater or equal to 4'\"\r",
+									"  ).to.include(\"Semester must be greater or equal to 4\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"document\": 12347,\r\n  \"name\": \"Early Semester Student\",\r\n  \"program\": \"Systems Engineering\",\r\n  \"semester\": 3,\r\n  \"average\": 4.0\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/students/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"students",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AUX - Create Student Unactive",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const json = pm.response.json();\r",
+									"pm.environment.set(\"unactive-student-id\", json.id);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"document\": 9100,\r\n  \"name\": \"Unactive Student\",\r\n  \"program\": \"Engineering\",\r\n  \"semester\": 6,\r\n  \"average\": 4.1\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/students/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"students",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AUX - Create Unactive Project",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const json = pm.response.json();\r",
+									"pm.environment.set(\"inactive-project-id\", json.id);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Finished Project\",\r\n  \"area\": \"Software\",\r\n  \"budget\": 8000,\r\n  \"grade\": 4.0,\r\n  \"status\": 3,\r\n  \"start\": \"2023-01-01\",\r\n  \"end\": \"2023-12-31\",\r\n  \"leader\": \"{{unactive-student-id}}\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/projects/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"projects",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Student (Valid)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"✅ Should return 200 on successful student deletion\", () => {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"✅ Response confirms deletion\", () => {\r",
+									"  const json = pm.response.json();\r",
+									"  pm.expect(json.affected, \"❎ Expected 'affected' to be 1\").to.equal(1);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/students/{{unactive-student-id}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"students",
+								"{{unactive-student-id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AUX - Create Student Active",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const json = pm.response.json();\r",
+									"pm.environment.set(\"active-student-id\", json.id);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"document\": 9200,\r\n  \"name\": \"Active Student\",\r\n  \"program\": \"AI\",\r\n  \"semester\": 7,\r\n  \"average\": 4.3\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/students/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"students",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AUX - Create Active Project",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const json = pm.response.json();\r",
+									"pm.environment.set(\"active-project-id\", json.id);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"New Ongoing Project\",\r\n  \"area\": \"AI\",\r\n  \"budget\": 9000,\r\n  \"grade\": 4.0,\r\n  \"status\": 2,\r\n  \"start\": \"2025-06-01\",\r\n  \"leader\": \"{{active-student-id}}\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/projects/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"projects",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Student (With Unfinished Project)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"❎ Should return 400 Bad Request (Active projects constraint)\", () => {\r",
+									"  pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"❎ Error message: Student has active unfinished projects\", () => {\r",
+									"  pm.expect(\r",
+									"    pm.response.text(),\r",
+									"    \"❎ Expected message: 'Student cannot be deleted because they have active (unfinished) projects'\"\r",
+									"  ).to.include(\"Student cannot be deleted because they have active (unfinished) projects\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/students/{{active-student-id}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"students",
+								"{{active-student-id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
